@@ -56,7 +56,9 @@ no shut
 ip add 192.168.102.11 255.255.255.0
 !@telnet use secureCRT: telnet 192.168.108.5
 !in SEcureCRT, Paste This:
-config t
+Line vty 0 20
+ transport input all
+ exec-timeout 0 0
 IP ROUTE 0.0.0.0  0.0.0.0 208.8.8.2
 ip name-server 8.8.8.8 1.1.1.1
 ip domain-lookup
@@ -312,7 +314,7 @@ tcp,udp,icmp,IP     Any      web310/11
 Config t
 service timestamps log datetime
 service timestamps debug datetime
-logging 10.m.1.10
+logging 10.12.1.10
 logging trap 5
 NO IP access-list Extended FWP1
 IP access-list Extended FWP1
